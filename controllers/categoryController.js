@@ -19,7 +19,7 @@ exports.createCategory = async (req, res) => {
     await newCategory.save();
     res.status(201).json(newCategory);
   } catch (error) {
-    res.status(500).json({ message: 'Server Error', error });
+    res.status(500).json({ message: 'Server Error', error: error.message });
   } 
 };
 
@@ -41,7 +41,7 @@ exports.deleteCategoryById = async (req, res) => {
     res.status(200).json({ message: 'Category deleted successfully' });
   }
     catch (error) {
-    res.status(500).json({ message: 'Server Error', error });
+    res.status(500).json({ message: 'Server Error', error: error.message });
   }
 };
 
@@ -57,6 +57,6 @@ exports.updateCategoryById = async (req, res) => {
     res.status(200).json(updatedCategory);
   }
     catch (error) {
-    res.status(500).json({ message: 'Server Error', error });
+    res.status(500).json({ message: 'Server Error', error: error.message });
     }
 };
